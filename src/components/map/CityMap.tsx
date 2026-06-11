@@ -177,6 +177,51 @@ export function CityMap({
         Grande Allée · boul. Laurier
       </text>
 
+      {/* ——— Données RTC simplifiées : corridors majeurs issus des sources ouvertes ——— */}
+      <g className="zoom-detail rtc-layer" aria-label="Corridors RTC simplifiés">
+        <defs>
+          <path id="rtc-metrobus-path" d="M315,586 C510,540 682,500 840,462 C948,438 1065,402 1210,342" />
+          <path id="rtc-807-path" d="M268,650 C430,608 610,560 760,520 C850,495 930,472 1000,445" />
+          <path id="rtc-littoral-path" d="M305,646 C430,625 548,608 652,596 C752,584 842,574 922,548" />
+        </defs>
+        <g className="rtc-corridors">
+          <use href="#rtc-metrobus-path" className="rtc-path-edge" />
+          <use href="#rtc-metrobus-path" className="rtc-path rtc-metrobus" />
+          <use href="#rtc-807-path" className="rtc-path-edge" />
+          <use href="#rtc-807-path" className="rtc-path rtc-local" />
+          <use href="#rtc-littoral-path" className="rtc-path-edge" />
+          <use href="#rtc-littoral-path" className="rtc-path rtc-bike" />
+        </g>
+        <g className="rtc-labels">
+          <text x={742} y={445} transform="rotate(-14 742 445)">RTC Métrobus 800 · 801</text>
+          <text x={650} y={535} transform="rotate(-14 650 535)">Parcours 807 · axe Sainte-Foy</text>
+          <text x={520} y={588} transform="rotate(-8 520 588)">Corridor du Littoral · àVélo</text>
+        </g>
+        <g className="rtc-bus" aria-hidden="true">
+          <rect x={-9} y={-5} width={18} height={10} rx={3} />
+          <circle cx={-5} cy={6} r={1.8} />
+          <circle cx={5} cy={6} r={1.8} />
+          <animateMotion dur="18s" repeatCount="indefinite" rotate="auto">
+            <mpath href="#rtc-metrobus-path" />
+          </animateMotion>
+        </g>
+        <g className="rtc-bus rtc-bus-secondary" aria-hidden="true">
+          <rect x={-8} y={-4.5} width={16} height={9} rx={3} />
+          <circle cx={-4.5} cy={5.5} r={1.6} />
+          <circle cx={4.5} cy={5.5} r={1.6} />
+          <animateMotion dur="22s" begin="-7s" repeatCount="indefinite" rotate="auto">
+            <mpath href="#rtc-807-path" />
+          </animateMotion>
+        </g>
+      </g>
+
+      <g className="zoom-detail relief-detail" aria-hidden="true">
+        <path d="M820,524 C872,514 930,525 984,558 C962,598 918,626 872,622 C828,618 800,586 804,552 Z" />
+        <path d="M1198,300 C1238,284 1282,286 1320,306 C1302,332 1264,342 1226,334 Z" />
+        <text x={900} y={548} transform="rotate(12 900 548)">falaise du cap Diamant</text>
+        <text x={1256} y={306} transform="rotate(-8 1256 306)">escarpement Montmorency</text>
+      </g>
+
       <g className="zoom-detail city-zoom-detail" aria-hidden="true">
         <text x={566} y={304} transform="rotate(-8 566 304)">A-40 · Félix-Leclerc</text>
         <text x={246} y={284} transform="rotate(-78 246 284)">A-73 · Henri-IV</text>

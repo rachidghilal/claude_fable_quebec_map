@@ -35,6 +35,8 @@ documentée — histoire, anecdote « Le saviez-vous ? » et conseils de visite.
   bouton retour ; marqueurs accessibles au clavier.
 - **Caméra de carte** : zoom molette ou boutons, déplacement par glisser, flèches clavier,
   recentrage, détails cartographiques qui apparaissent seulement en vue rapprochée.
+- **Couche données discrète** : sources publiques résumées dans la légende, corridors RTC
+  simplifiés et repères de relief qui apparaissent au zoom sans surcharger la vue générale.
 - **Visite express** : parcours guidé des incontournables avec recadrage automatique et barre
   compacte superposée à la carte.
 - **Responsive** : bureau, compact et mobile.
@@ -91,6 +93,13 @@ que la carte n'est pas vide. Les captures sont écrites dans `verification/`.
 La carte est **illustrée et stylisée** : les relations spatiales sont respectées (rives,
 ponts, quartiers, tracés des autoroutes) mais les distances et les géométries sont
 volontairement simplifiées, comme sur un plan touristique dessiné.
+
+## Sources publiques
+
+- RTC : données ouvertes sur les horaires, parcours, arrêts, stations àVélo et zones Flexibus.
+- OpenStreetMap / Geofabrik : repères de rues et structure urbaine de référence.
+- UNESCO, Sépaq, Observatoire de la Capitale et sites officiels des lieux : validation des
+  descriptions, hauteurs, statuts patrimoniaux et informations pratiques.
 
 ## Licence
 

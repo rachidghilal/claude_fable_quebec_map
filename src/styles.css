@@ -668,13 +668,19 @@ a {
   list-style: none;
   margin: 0;
   padding: 12px 14px;
+  display: grid;
+  gap: 7px;
+  font-size: 12.5px;
+}
+
+.legend-popover {
   background: var(--paper);
   border: 1px solid var(--line);
   border-radius: 14px;
   box-shadow: var(--shadow-soft);
   display: grid;
-  gap: 7px;
-  font-size: 12.5px;
+  gap: 0;
+  overflow: hidden;
 }
 
 .legend-list li {
@@ -704,6 +710,42 @@ a {
 .legend-essential {
   border-top: 1px dashed var(--line);
   padding-top: 7px;
+}
+
+.legend-data {
+  display: grid;
+  gap: 7px;
+  min-width: 230px;
+  padding: 11px 14px 12px;
+  border-top: 1px solid var(--line);
+  background: #f6efdf;
+  color: #4f4639;
+  font-size: 12px;
+}
+
+.legend-data strong,
+.legend-data span {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.legend-data strong {
+  font-size: 12.5px;
+  color: var(--ink);
+}
+
+.legend-data svg {
+  color: var(--flag-blue);
+  flex: none;
+}
+
+.legend-data em {
+  margin-top: 1px;
+  color: var(--muted);
+  font-size: 11.5px;
+  font-style: normal;
+  line-height: 1.35;
 }
 
 /* ————————————————— Textes SVG ————————————————— */
@@ -827,6 +869,89 @@ a {
 .old-quebec-zoom-detail text {
   font-size: 10.8px;
   fill: #75654d;
+}
+
+.rtc-layer {
+  opacity: 0;
+}
+
+.map-stage[data-zoom="detail"] .rtc-layer {
+  opacity: 0.82;
+}
+
+.rtc-path-edge {
+  fill: none;
+  stroke: rgba(251, 247, 238, 0.88);
+  stroke-width: 8px;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.rtc-path {
+  fill: none;
+  stroke-width: 3.6px;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 12 8;
+}
+
+.rtc-metrobus {
+  stroke: #c7463d;
+}
+
+.rtc-local {
+  stroke: #226ca8;
+}
+
+.rtc-bike {
+  stroke: #3b8f6a;
+  stroke-width: 2.8px;
+  stroke-dasharray: 5 7;
+}
+
+.rtc-labels text {
+  font-size: 10.5px;
+  font-weight: 750;
+  letter-spacing: 0.8px;
+  fill: #4d4438;
+  paint-order: stroke;
+  stroke: rgba(251, 247, 238, 0.9);
+  stroke-width: 3px;
+  stroke-linejoin: round;
+}
+
+.rtc-bus rect {
+  fill: #c7463d;
+  stroke: #fbf7ee;
+  stroke-width: 1.8px;
+}
+
+.rtc-bus circle {
+  fill: var(--map-ink);
+}
+
+.rtc-bus-secondary rect {
+  fill: #226ca8;
+}
+
+.relief-detail path {
+  fill: url(#cliff-hatch);
+  opacity: 0.45;
+  stroke: #a8895f;
+  stroke-width: 1.2px;
+}
+
+.relief-detail text {
+  font-family: var(--serif);
+  font-size: 13px;
+  font-style: italic;
+  letter-spacing: 0.5px;
+  fill: #8b704c;
+  opacity: 0.78;
+  paint-order: stroke;
+  stroke: rgba(251, 247, 238, 0.86);
+  stroke-width: 3.4px;
+  stroke-linejoin: round;
 }
 
 .map-cliff-label {

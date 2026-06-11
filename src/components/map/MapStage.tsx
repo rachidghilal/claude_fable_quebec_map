@@ -1,5 +1,5 @@
 import { useRef, useState, type KeyboardEvent, type PointerEvent, type WheelEvent } from "react";
-import { ArrowLeft, ListTree, Minus, Play, Plus, RotateCcw, X } from "lucide-react";
+import { ArrowLeft, Database, ListTree, Minus, Mountain, Play, Plus, RotateCcw, Route, X } from "lucide-react";
 import { TourBar } from "../TourBar";
 import { categories } from "../../data/categories";
 import type { MapId } from "../../data/places";
@@ -223,20 +223,38 @@ export function MapStage({
           Légende
         </button>
         {legendOpen && (
-          <ul className="legend-list">
-            {categories.map((category) => (
-              <li key={category.id}>
-                <span className="legend-dot" style={{ background: category.color }}>
-                  <category.Icon size={11} color="#fbf7ee" strokeWidth={2.4} />
-                </span>
-                {category.label}
+          <div className="legend-popover">
+            <ul className="legend-list">
+              {categories.map((category) => (
+                <li key={category.id}>
+                  <span className="legend-dot" style={{ background: category.color }}>
+                    <category.Icon size={11} color="#fbf7ee" strokeWidth={2.4} />
+                  </span>
+                  {category.label}
+                </li>
+              ))}
+              <li className="legend-essential">
+                <span className="legend-ring" />
+                Incontournable
               </li>
-            ))}
-            <li className="legend-essential">
-              <span className="legend-ring" />
-              Incontournable
-            </li>
-          </ul>
+            </ul>
+
+            <div className="legend-data" aria-label="Sources et données de la carte">
+              <strong>
+                <Database size={13} aria-hidden="true" />
+                Données intégrées
+              </strong>
+              <span>
+                <Route size={12} aria-hidden="true" />
+                RTC : parcours, arrêts, àVélo
+              </span>
+              <span>
+                <Mountain size={12} aria-hidden="true" />
+                Relief : cap Diamant, Montmorency
+              </span>
+              <em>Sources publiques : RTC, OSM, UNESCO, Sépaq.</em>
+            </div>
+          </div>
         )}
       </div>
     </div>

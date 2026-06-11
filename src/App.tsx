@@ -279,7 +279,7 @@ export default function App() {
             onHover={setHoveredId}
           />
           <p className="map-footnote">
-            Carte illustrée — géographie stylisée, distances et tracés simplifiés.
+            Carte illustrée — tracés simplifiés, repères vérifiés avec données RTC, OSM et sources publiques.
           </p>
         </main>
 

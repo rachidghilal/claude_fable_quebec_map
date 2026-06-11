@@ -111,8 +111,12 @@ async function verifyInteractions(browser) {
   await page.waitForTimeout(300);
   const zoomTransform = await page.locator(".city-map .map-world").getAttribute("transform");
   const detailMode = await page.locator('.map-stage[data-zoom="detail"]').count();
+  const rtcLayerCount = await page.locator(".city-map .rtc-layer").count();
+  const sourceFootnote = await page.locator(".map-footnote").innerText();
   assert(zoomTransform && /scale\((1\.[8-9]|[2-3])/.test(zoomTransform), `caméra: zoom insuffisant (${zoomTransform})`);
   assert(detailMode === 1, "caméra: les détails progressifs devraient être actifs");
+  assert(rtcLayerCount === 1, `données: couche RTC introuvable (${rtcLayerCount})`);
+  assert(sourceFootnote.includes("RTC") && sourceFootnote.includes("OSM"), "données: sources publiques absentes de la note carte");
 
   const cityBox = await page.locator("svg.city-map").boundingBox();
   assert(cityBox, "caméra: boîte SVG introuvable");
@@ -197,7 +201,7 @@ async function verifyInteractions(browser) {
 
   await page.close();
 
-  return { zoomTransform, afterPan, placeTitle, oldQuebecMarkers, filteredCount, dimmedCount, tourTitle };
+  return { zoomTransform, afterPan, placeTitle, oldQuebecMarkers, filteredCount, dimmedCount, tourTitle, rtcLayerCount };
 }
 
 await mkdir(outDir, { recursive: true });
